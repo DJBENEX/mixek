@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="hu">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="author" content="Zsótér Bence">
+        <title>DJ B3N3X - Mixek</title>
+        <link rel="icon" type="image/png" href="Images/nagy logo.png">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+        <link rel="stylesheet" href="style.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+       <div class="contanier">
+
+        <div class="row">
+            <div class="col-12 col-xl-4">
+                <div class="mix-grid-container">
+                    <div class="mix-container d-block mx-auto my-2 mx-3">
+                        <div class="mix-card text-center">
+                            <div class="mix-info text-center">
+                                <h2>This is what autumn feels like x Daddy Issues x When I R.I.P x Lose Yourself x Ghost x A Thousand Years</h2>
+                             </div>
+                                <audio controls controlslist="nodownload" oncontextmenu="return false;" class="custom-player"><source src="Music/01 REC-2026-02-20.mp3" type="audio/mp3"></audio>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-xl-4">
+                <div class="mix-grid-container">
+                    <div class="mix-container d-block mx-auto my-2 mx-3">
+                        <div class="mix-card text-center">
+                            <div class="mix-info text-center">
+                                <h2>Saltwater x Beachball x Cafe Del Mar x Everlight x Lethal Industry</h2>
+                            </div>
+                                <audio controls controlslist="nodownload" oncontextmenu="return false;" class="custom-player"><source src="Music/0321(1).MP3" type="audio/mp3"></audio>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-xl-4">
+                <div class="mix-grid-container">
+                    <div class="mix-container d-block mx-auto my-2 mx-3">
+                        <div class="mix-card text-center">
+                            <div class="mix-info text-center">
+                                <h2>Change The Way You Kiss Me x Insomnia</h2>
+                            </div>
+                                <audio controls controlslist="nodownload" oncontextmenu="return false;" class="custom-player"><source src="Music/Change the Insomnia.mp3" type="audio/mp3"></audio>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12 col-xl-4">
+                <div class="mix-grid-container">
+                    <div class="mix-container d-block mx-auto my-2 mx-3">
+                        <div class="mix-card text-center">
+                            <div class="mix-info text-center">
+                                <h2>I Got You x Don't You Want Me x Nézz és Láss</h2>
+                            </div>
+                                <audio controls controlslist="nodownload" oncontextmenu="return false;" class="custom-player"><source src="Music/I Got that you don't want me to see.mp3" type="audio/mp3"></audio>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-xl-4">
+                <div class="mix-grid-container">
+                    <div class="mix-container d-block mx-auto my-2 mx-3">
+                        <div class="mix-card text-center">
+                            <div class="mix-info text-center">
+                                <h2>I Love It x I Gotta Feeling</h2>
+                            </div>
+                                <audio controls controlslist="nodownload" oncontextmenu="return false;" class="custom-player"><source src="Music/I love  x gotta feeling.mp3" type="audio/mp3"></audio>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-xl-4">
+                <div class="mix-grid-container">
+                    <div class="mix-container d-block mx-auto my-2 mx-3">
+                        <div class="mix-card text-center">
+                            <div class="mix-info text-center">
+                                <h2>Pepas x Danza Kuduro</h2>
+                            </div>
+                                <audio controls controlslist="nodownload" oncontextmenu="return false;" class="custom-player"><source src="Music/Pepas x Danza Kuduro.mp3" type="audio/mp3"></audio>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12 col-xl-4">
+                <div class="mix-grid-container">
+                    <div class="mix-container d-block mx-auto my-2 mx-3">
+                        <div class="mix-card text-center">
+                            <div class="mix-info text-center">
+                                <h2>Tsunami x Save My Night</h2>
+                            </div>
+                                <audio controls controlslist="nodownload" oncontextmenu="return false;" class="custom-player"><source src="Music/Tsunami x Save My Night.mp3" type="audio/mp3"></audio>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+       </div>
+       <script>document.addEventListener('contextmenu', function(e) {if (e.target.tagName === 'AUDIO'){e.preventDefault();}}, false);</script>
+       <script>
+            // Összes audio elem kijelölése
+            const players = document.querySelectorAll('.custom-player');
+
+            players.forEach(player => {
+                // Amikor elindul a lejátszás (Play gomb)
+                player.addEventListener('play', function() {
+                    
+                    // 1. Minden MÁSIK lejátszót megállítunk
+                    players.forEach(otherPlayer => {
+                        if (otherPlayer !== player) {
+                            otherPlayer.pause();
+                            otherPlayer.currentTime = 0; // Opcionális: visszaugrik az elejére
+                        }
+                    });
+
+                    // 2. Minden kártyáról levesszük a piros keretet
+                    document.querySelectorAll('.mix-card').forEach(card => {
+                        card.classList.remove('playing');
+                    });
+
+                    // 3. Megkeressük a mostani lejátszó "szülő" kártyáját és rátesszük a pirosat
+                    const currentCard = player.closest('.mix-card');
+                    if (currentCard) {
+                        currentCard.classList.add('playing');
+                    }
+                });
+
+                // Amikor megállítják (Pause) vagy vége a számnak
+                player.addEventListener('pause', removeHighlight);
+                player.addEventListener('ended', removeHighlight);
+
+                function removeHighlight() {
+                    const currentCard = player.closest('.mix-card');
+                    if (currentCard) {
+                        currentCard.classList.remove('playing');
+                    }
+                }
+            });
+        </script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+    </body>
+
+</html>
